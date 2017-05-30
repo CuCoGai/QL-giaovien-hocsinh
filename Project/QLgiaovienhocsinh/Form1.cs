@@ -1,4 +1,4 @@
-﻿using QLgiaovienhocsinh.Model;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,48 +8,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QLgiaovienhocsinh.Model;
 
 namespace QLgiaovienhocsinh
 {
     public partial class Form1 : Form
     {
         QuanLyGiaoVienVaHocSinhEntities db = new QuanLyGiaoVienVaHocSinhEntities();
-        
+
         public Form1()
         {
             InitializeComponent();
-            LoadDataGV();
-            AddBinding(); 
+            
         }
 
         #region method
 
         void AddBinding()
         {
-            tbxTenGV.DataBindings.Add(new Binding("text", dataGridViewGV.DataSource, "TenGV"));
-            tbxCMT.DataBindings.Add(new Binding("text", dataGridViewGV.DataSource, "CMT"));
-           dateTimePickerGV.DataBindings.Add(new Binding("Text", dataGridViewGV.DataSource, "NgaySinh",true, DataSourceUpdateMode.OnPropertyChanged));
-            cmbGioiTinhGV.DataBindings.Add(new Binding("text", dataGridViewGV.DataSource, "GioiTinh", true, DataSourceUpdateMode.OnPropertyChanged));
-            tbxEmailGV.DataBindings.Add(new Binding("text", dataGridViewGV.DataSource, "Email"));
-            tbxSDTGV.DataBindings.Add(new Binding("text", dataGridViewGV.DataSource, "SDT"));
-            tbxTonGiaoGV.DataBindings.Add(new Binding("text", dataGridViewGV.DataSource, "TonGiao"));
-            tbxDanTocGV.DataBindings.Add(new Binding("text", dataGridViewGV.DataSource, "DanToc"));
-            tbxDiaChiGV.DataBindings.Add(new Binding("text", dataGridViewGV.DataSource, "DiaChi"));
-            tbxQQGV.DataBindings.Add(new Binding("text", dataGridViewGV.DataSource, "QueQuan"));
+
         }
 
          void LoadDataGV()
         {
-            var gv = (from p in db.GiaoVien
-                     select p).ToList();
-          dataGridViewGV.DataSource = gv;
+            this.dataGridViewGV.DataSource = db.GiaoViens.ToList();
+
         }
 
         void LoadDataHS  ()
         {
-            var gv = from p in db.HocSinh
-                     select p;
-            dataGridViewHS.DataSource = gv.ToList();
+            this.dataGridViewGV.DataSource = db.GiaoViens.ToList();
+
         }
 
          void clear( )
@@ -68,21 +57,8 @@ namespace QLgiaovienhocsinh
       }
 
        void AddGV()
-        {
+        {            
             
-            GiaoVien gv = new GiaoVien(){
-             TenGV = tbxTenGV.Text.ToString() ,
-            CMT = int.Parse(tbxCMT.Text),
-            GioiTinh = bool.Parse(cmbGioiTinhGV.SelectedIndex.ToString()),
-            NgaySinh = dateTimePickerGV.Value,
-            Email = tbxEmailGV.Text.ToString(),
-            SDT = tbxSDTGV.Text.ToString(),
-            TonGiao = tbxTonGiaoGV.Text.ToString(),
-            DanToc = tbxDanTocGV.Text.ToString(),
-            DiaChi = tbxDiaChiGV.Text.ToString(),
-            QueQuan = tbxQQGV.Text.ToString()
-            };   
-            db.GiaoVien.Add(gv);
         }
 
         void EditGV()
@@ -127,7 +103,7 @@ namespace QLgiaovienhocsinh
 
         private void dataGridViewGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            AddBinding();
+            
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

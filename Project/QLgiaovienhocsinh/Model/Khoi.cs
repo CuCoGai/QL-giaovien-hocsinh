@@ -17,13 +17,13 @@ namespace QLgiaovienhocsinh.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Khoi()
         {
-            this.Lop = new HashSet<Lop>();
+            this.Lops = new HashSet<Lop>();
         }
     
         public string MaKhoi { get; set; }
         public string TenKhoi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Lop> Lop { get; set; }
+        public virtual ICollection<Lop> Lops { get; set; }
     }
 }

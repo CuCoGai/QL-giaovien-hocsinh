@@ -17,19 +17,19 @@ namespace QLgiaovienhocsinh.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LopMonHoc()
         {
-            this.GiaoVien = new HashSet<GiaoVien>();
-            this.Lop = new HashSet<Lop>();
-            this.MonHoc = new HashSet<MonHoc>();
+            this.GiaoViens = new HashSet<GiaoVien>();
+            this.Lops = new HashSet<Lop>();
+            this.MonHocs = new HashSet<MonHoc>();
         }
     
         public string MaLopMH { get; set; }
         public string TenLopMH { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GiaoVien> GiaoVien { get; set; }
+        public virtual ICollection<GiaoVien> GiaoViens { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Lop> Lop { get; set; }
+        public virtual ICollection<Lop> Lops { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MonHoc> MonHoc { get; set; }
+        public virtual ICollection<MonHoc> MonHocs { get; set; }
     }
 }

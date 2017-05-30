@@ -17,9 +17,9 @@ namespace QLgiaovienhocsinh.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GiaoVien()
         {
-            this.PhanGiaoVienCN = new HashSet<PhanGiaoVienCN>();
-            this.LopMonHoc = new HashSet<LopMonHoc>();
-            this.Ban = new HashSet<Ban>();
+            this.PhanGiaoVienCNs = new HashSet<PhanGiaoVienCN>();
+            this.LopMonHocs = new HashSet<LopMonHoc>();
+            this.Bans = new HashSet<Ban>();
         }
     
         public int CMT { get; set; }
@@ -34,10 +34,10 @@ namespace QLgiaovienhocsinh.Model
         public string TonGiao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhanGiaoVienCN> PhanGiaoVienCN { get; set; }
+        public virtual ICollection<PhanGiaoVienCN> PhanGiaoVienCNs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LopMonHoc> LopMonHoc { get; set; }
+        public virtual ICollection<LopMonHoc> LopMonHocs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ban> Ban { get; set; }
+        public virtual ICollection<Ban> Bans { get; set; }
     }
 }

@@ -27,16 +27,16 @@ namespace QLgiaovienhocsinh.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Ban> Ban { get; set; }
-        public virtual DbSet<GiaoVien> GiaoVien { get; set; }
-        public virtual DbSet<HocSinh> HocSinh { get; set; }
-        public virtual DbSet<Khoi> Khoi { get; set; }
-        public virtual DbSet<Lop> Lop { get; set; }
-        public virtual DbSet<LopMonHoc> LopMonHoc { get; set; }
-        public virtual DbSet<MonHoc> MonHoc { get; set; }
-        public virtual DbSet<PhanGiaoVienCN> PhanGiaoVienCN { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<NguoiDung> NguoiDung { get; set; }
+        public virtual DbSet<Ban> Bans { get; set; }
+        public virtual DbSet<GiaoVien> GiaoViens { get; set; }
+        public virtual DbSet<HocSinh> HocSinhs { get; set; }
+        public virtual DbSet<Khoi> Khois { get; set; }
+        public virtual DbSet<Lop> Lops { get; set; }
+        public virtual DbSet<LopMonHoc> LopMonHocs { get; set; }
+        public virtual DbSet<MonHoc> MonHocs { get; set; }
+        public virtual DbSet<PhanGiaoVienCN> PhanGiaoVienCNs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

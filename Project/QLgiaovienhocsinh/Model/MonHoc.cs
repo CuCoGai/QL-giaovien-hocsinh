@@ -17,8 +17,8 @@ namespace QLgiaovienhocsinh.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MonHoc()
         {
-            this.Ban = new HashSet<Ban>();
-            this.LopMonHoc = new HashSet<LopMonHoc>();
+            this.Bans = new HashSet<Ban>();
+            this.LopMonHocs = new HashSet<LopMonHoc>();
         }
     
         public string MaMonHoc { get; set; }
@@ -26,8 +26,8 @@ namespace QLgiaovienhocsinh.Model
         public string NDMonHoc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ban> Ban { get; set; }
+        public virtual ICollection<Ban> Bans { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LopMonHoc> LopMonHoc { get; set; }
+        public virtual ICollection<LopMonHoc> LopMonHocs { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace QLgiaovienhocsinh.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HocSinh()
         {
-            this.Lop = new HashSet<Lop>();
+            this.Lops = new HashSet<Lop>();
         }
     
         public int MaHS { get; set; }
@@ -30,6 +30,6 @@ namespace QLgiaovienhocsinh.Model
         public string TonGiao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Lop> Lop { get; set; }
+        public virtual ICollection<Lop> Lops { get; set; }
     }
 }

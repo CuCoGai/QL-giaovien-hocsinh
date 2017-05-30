@@ -27,7 +27,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.BanPhuTrachMonHoc' doe
           <Key>
             <PropertyRef Name="CMT" />
           </Key>
-          <Property Name="CMT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CMT" Type="int" Nullable="false" />
           <Property Name="TenGV" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NgaySinh" Type="date" />
           <Property Name="GioiTinh" Type="bit" />
@@ -525,14 +525,14 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
           <Property Name="MaBan" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenBan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NoiDung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="MonHoc" Relationship="Self.BanPhuTrachMonHoc" FromRole="Ban" ToRole="MonHoc" />
-          <NavigationProperty Name="GiaoVien" Relationship="Self.GiaoVienThuocBan" FromRole="Ban" ToRole="GiaoVien" />
+          <NavigationProperty Name="MonHocs" Relationship="Self.BanPhuTrachMonHoc" FromRole="Ban" ToRole="MonHoc" />
+          <NavigationProperty Name="GiaoViens" Relationship="Self.GiaoVienThuocBan" FromRole="Ban" ToRole="GiaoVien" />
         </EntityType>
         <EntityType Name="GiaoVien">
           <Key>
             <PropertyRef Name="CMT" />
           </Key>
-          <Property Name="CMT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CMT" Type="Int32" Nullable="false" />
           <Property Name="TenGV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NgaySinh" Type="DateTime" Precision="0" />
           <Property Name="GioiTinh" Type="Boolean" />
@@ -542,9 +542,9 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
           <Property Name="QueQuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DanToc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="TonGiao" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PhanGiaoVienCN" Relationship="Self.FK_PhanGiaoVienCN_GiaoVien" FromRole="GiaoVien" ToRole="PhanGiaoVienCN" />
-          <NavigationProperty Name="LopMonHoc" Relationship="Self.GiaoVienDayLopMH" FromRole="GiaoVien" ToRole="LopMonHoc" />
-          <NavigationProperty Name="Ban" Relationship="Self.GiaoVienThuocBan" FromRole="GiaoVien" ToRole="Ban" />
+          <NavigationProperty Name="PhanGiaoVienCNs" Relationship="Self.FK_PhanGiaoVienCN_GiaoVien" FromRole="GiaoVien" ToRole="PhanGiaoVienCN" />
+          <NavigationProperty Name="LopMonHocs" Relationship="Self.GiaoVienDayLopMH" FromRole="GiaoVien" ToRole="LopMonHoc" />
+          <NavigationProperty Name="Bans" Relationship="Self.GiaoVienThuocBan" FromRole="GiaoVien" ToRole="Ban" />
         </EntityType>
         <EntityType Name="HocSinh">
           <Key>
@@ -558,7 +558,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
           <Property Name="QueQuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DanToc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="TonGiao" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Lop" Relationship="Self.PhanLop" FromRole="HocSinh" ToRole="Lop" />
+          <NavigationProperty Name="Lops" Relationship="Self.PhanLop" FromRole="HocSinh" ToRole="Lop" />
         </EntityType>
         <EntityType Name="Khoi">
           <Key>
@@ -566,7 +566,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
           </Key>
           <Property Name="MaKhoi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenKhoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Lop" Relationship="Self.PhanKhoi" FromRole="Khoi" ToRole="Lop" />
+          <NavigationProperty Name="Lops" Relationship="Self.PhanKhoi" FromRole="Khoi" ToRole="Lop" />
         </EntityType>
         <EntityType Name="Lop">
           <Key>
@@ -574,10 +574,10 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
           </Key>
           <Property Name="MaLop" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenLop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PhanGiaoVienCN" Relationship="Self.FK_PhanGiaoVienCN_Lop" FromRole="Lop" ToRole="PhanGiaoVienCN" />
-          <NavigationProperty Name="LopMonHoc" Relationship="Self.LopHocLopMonHoc" FromRole="Lop" ToRole="LopMonHoc" />
-          <NavigationProperty Name="Khoi" Relationship="Self.PhanKhoi" FromRole="Lop" ToRole="Khoi" />
-          <NavigationProperty Name="HocSinh" Relationship="Self.PhanLop" FromRole="Lop" ToRole="HocSinh" />
+          <NavigationProperty Name="PhanGiaoVienCNs" Relationship="Self.FK_PhanGiaoVienCN_Lop" FromRole="Lop" ToRole="PhanGiaoVienCN" />
+          <NavigationProperty Name="LopMonHocs" Relationship="Self.LopHocLopMonHoc" FromRole="Lop" ToRole="LopMonHoc" />
+          <NavigationProperty Name="Khois" Relationship="Self.PhanKhoi" FromRole="Lop" ToRole="Khoi" />
+          <NavigationProperty Name="HocSinhs" Relationship="Self.PhanLop" FromRole="Lop" ToRole="HocSinh" />
         </EntityType>
         <EntityType Name="LopMonHoc">
           <Key>
@@ -585,9 +585,9 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
           </Key>
           <Property Name="MaLopMH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenLopMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="GiaoVien" Relationship="Self.GiaoVienDayLopMH" FromRole="LopMonHoc" ToRole="GiaoVien" />
-          <NavigationProperty Name="Lop" Relationship="Self.LopHocLopMonHoc" FromRole="LopMonHoc" ToRole="Lop" />
-          <NavigationProperty Name="MonHoc" Relationship="Self.PhanLMH" FromRole="LopMonHoc" ToRole="MonHoc" />
+          <NavigationProperty Name="GiaoViens" Relationship="Self.GiaoVienDayLopMH" FromRole="LopMonHoc" ToRole="GiaoVien" />
+          <NavigationProperty Name="Lops" Relationship="Self.LopHocLopMonHoc" FromRole="LopMonHoc" ToRole="Lop" />
+          <NavigationProperty Name="MonHocs" Relationship="Self.PhanLMH" FromRole="LopMonHoc" ToRole="MonHoc" />
         </EntityType>
         <EntityType Name="MonHoc">
           <Key>
@@ -596,8 +596,8 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
           <Property Name="MaMonHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenMonHoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NDMonHoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Ban" Relationship="Self.BanPhuTrachMonHoc" FromRole="MonHoc" ToRole="Ban" />
-          <NavigationProperty Name="LopMonHoc" Relationship="Self.PhanLMH" FromRole="MonHoc" ToRole="LopMonHoc" />
+          <NavigationProperty Name="Bans" Relationship="Self.BanPhuTrachMonHoc" FromRole="MonHoc" ToRole="Ban" />
+          <NavigationProperty Name="LopMonHocs" Relationship="Self.PhanLMH" FromRole="MonHoc" ToRole="LopMonHoc" />
         </EntityType>
         <EntityType Name="PhanGiaoVienCN">
           <Key>
@@ -609,7 +609,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
           <NavigationProperty Name="GiaoVien" Relationship="Self.FK_PhanGiaoVienCN_GiaoVien" FromRole="PhanGiaoVienCN" ToRole="GiaoVien" />
           <NavigationProperty Name="Lop" Relationship="Self.FK_PhanGiaoVienCN_Lop" FromRole="PhanGiaoVienCN" ToRole="Lop" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -679,51 +679,51 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
           <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
         </Association>
         <EntityContainer Name="QuanLyGiaoVienVaHocSinhEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Ban" EntityType="Self.Ban" />
-          <EntitySet Name="GiaoVien" EntityType="Self.GiaoVien" />
-          <EntitySet Name="HocSinh" EntityType="Self.HocSinh" />
-          <EntitySet Name="Khoi" EntityType="Self.Khoi" />
-          <EntitySet Name="Lop" EntityType="Self.Lop" />
-          <EntitySet Name="LopMonHoc" EntityType="Self.LopMonHoc" />
-          <EntitySet Name="MonHoc" EntityType="Self.MonHoc" />
-          <EntitySet Name="PhanGiaoVienCN" EntityType="Self.PhanGiaoVienCN" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" />
+          <EntitySet Name="Bans" EntityType="Self.Ban" />
+          <EntitySet Name="GiaoViens" EntityType="Self.GiaoVien" />
+          <EntitySet Name="HocSinhs" EntityType="Self.HocSinh" />
+          <EntitySet Name="Khois" EntityType="Self.Khoi" />
+          <EntitySet Name="Lops" EntityType="Self.Lop" />
+          <EntitySet Name="LopMonHocs" EntityType="Self.LopMonHoc" />
+          <EntitySet Name="MonHocs" EntityType="Self.MonHoc" />
+          <EntitySet Name="PhanGiaoVienCNs" EntityType="Self.PhanGiaoVienCN" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
           <AssociationSet Name="FK_PhanGiaoVienCN_GiaoVien" Association="Self.FK_PhanGiaoVienCN_GiaoVien">
-            <End Role="GiaoVien" EntitySet="GiaoVien" />
-            <End Role="PhanGiaoVienCN" EntitySet="PhanGiaoVienCN" />
+            <End Role="GiaoVien" EntitySet="GiaoViens" />
+            <End Role="PhanGiaoVienCN" EntitySet="PhanGiaoVienCNs" />
           </AssociationSet>
           <AssociationSet Name="FK_PhanGiaoVienCN_Lop" Association="Self.FK_PhanGiaoVienCN_Lop">
-            <End Role="Lop" EntitySet="Lop" />
-            <End Role="PhanGiaoVienCN" EntitySet="PhanGiaoVienCN" />
+            <End Role="Lop" EntitySet="Lops" />
+            <End Role="PhanGiaoVienCN" EntitySet="PhanGiaoVienCNs" />
           </AssociationSet>
           <AssociationSet Name="BanPhuTrachMonHoc" Association="Self.BanPhuTrachMonHoc">
-            <End Role="Ban" EntitySet="Ban" />
-            <End Role="MonHoc" EntitySet="MonHoc" />
+            <End Role="Ban" EntitySet="Bans" />
+            <End Role="MonHoc" EntitySet="MonHocs" />
           </AssociationSet>
           <AssociationSet Name="GiaoVienDayLopMH" Association="Self.GiaoVienDayLopMH">
-            <End Role="GiaoVien" EntitySet="GiaoVien" />
-            <End Role="LopMonHoc" EntitySet="LopMonHoc" />
+            <End Role="GiaoVien" EntitySet="GiaoViens" />
+            <End Role="LopMonHoc" EntitySet="LopMonHocs" />
           </AssociationSet>
           <AssociationSet Name="GiaoVienThuocBan" Association="Self.GiaoVienThuocBan">
-            <End Role="Ban" EntitySet="Ban" />
-            <End Role="GiaoVien" EntitySet="GiaoVien" />
+            <End Role="Ban" EntitySet="Bans" />
+            <End Role="GiaoVien" EntitySet="GiaoViens" />
           </AssociationSet>
           <AssociationSet Name="LopHocLopMonHoc" Association="Self.LopHocLopMonHoc">
-            <End Role="Lop" EntitySet="Lop" />
-            <End Role="LopMonHoc" EntitySet="LopMonHoc" />
+            <End Role="Lop" EntitySet="Lops" />
+            <End Role="LopMonHoc" EntitySet="LopMonHocs" />
           </AssociationSet>
           <AssociationSet Name="PhanKhoi" Association="Self.PhanKhoi">
-            <End Role="Khoi" EntitySet="Khoi" />
-            <End Role="Lop" EntitySet="Lop" />
+            <End Role="Khoi" EntitySet="Khois" />
+            <End Role="Lop" EntitySet="Lops" />
           </AssociationSet>
           <AssociationSet Name="PhanLMH" Association="Self.PhanLMH">
-            <End Role="LopMonHoc" EntitySet="LopMonHoc" />
-            <End Role="MonHoc" EntitySet="MonHoc" />
+            <End Role="LopMonHoc" EntitySet="LopMonHocs" />
+            <End Role="MonHoc" EntitySet="MonHocs" />
           </AssociationSet>
           <AssociationSet Name="PhanLop" Association="Self.PhanLop">
-            <End Role="HocSinh" EntitySet="HocSinh" />
-            <End Role="Lop" EntitySet="Lop" />
+            <End Role="HocSinh" EntitySet="HocSinhs" />
+            <End Role="Lop" EntitySet="Lops" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -773,7 +773,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QuanLyGiaoVienVaHocSinhModelStoreContainer" CdmEntityContainer="QuanLyGiaoVienVaHocSinhEntities">
-          <EntitySetMapping Name="Ban">
+          <EntitySetMapping Name="Bans">
             <EntityTypeMapping TypeName="QuanLyGiaoVienVaHocSinhModel.Ban">
               <MappingFragment StoreEntitySet="Ban">
                 <ScalarProperty Name="MaBan" ColumnName="MaBan" />
@@ -782,7 +782,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GiaoVien">
+          <EntitySetMapping Name="GiaoViens">
             <EntityTypeMapping TypeName="QuanLyGiaoVienVaHocSinhModel.GiaoVien">
               <MappingFragment StoreEntitySet="GiaoVien">
                 <ScalarProperty Name="CMT" ColumnName="CMT" />
@@ -798,7 +798,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="HocSinh">
+          <EntitySetMapping Name="HocSinhs">
             <EntityTypeMapping TypeName="QuanLyGiaoVienVaHocSinhModel.HocSinh">
               <MappingFragment StoreEntitySet="HocSinh">
                 <ScalarProperty Name="MaHS" ColumnName="MaHS" />
@@ -812,7 +812,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Khoi">
+          <EntitySetMapping Name="Khois">
             <EntityTypeMapping TypeName="QuanLyGiaoVienVaHocSinhModel.Khoi">
               <MappingFragment StoreEntitySet="Khoi">
                 <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
@@ -820,7 +820,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Lop">
+          <EntitySetMapping Name="Lops">
             <EntityTypeMapping TypeName="QuanLyGiaoVienVaHocSinhModel.Lop">
               <MappingFragment StoreEntitySet="Lop">
                 <ScalarProperty Name="MaLop" ColumnName="MaLop" />
@@ -828,7 +828,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LopMonHoc">
+          <EntitySetMapping Name="LopMonHocs">
             <EntityTypeMapping TypeName="QuanLyGiaoVienVaHocSinhModel.LopMonHoc">
               <MappingFragment StoreEntitySet="LopMonHoc">
                 <ScalarProperty Name="MaLopMH" ColumnName="MaLopMH" />
@@ -836,7 +836,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MonHoc">
+          <EntitySetMapping Name="MonHocs">
             <EntityTypeMapping TypeName="QuanLyGiaoVienVaHocSinhModel.MonHoc">
               <MappingFragment StoreEntitySet="MonHoc">
                 <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
@@ -845,7 +845,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PhanGiaoVienCN">
+          <EntitySetMapping Name="PhanGiaoVienCNs">
             <EntityTypeMapping TypeName="QuanLyGiaoVienVaHocSinhModel.PhanGiaoVienCN">
               <MappingFragment StoreEntitySet="PhanGiaoVienCN">
                 <ScalarProperty Name="MaGiaoVien" ColumnName="MaGiaoVien" />
@@ -855,7 +855,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="QuanLyGiaoVienVaHocSinhModel.sysdiagrams">
+            <EntityTypeMapping TypeName="QuanLyGiaoVienVaHocSinhModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -865,7 +865,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="NguoiDung">
+          <EntitySetMapping Name="NguoiDungs">
             <EntityTypeMapping TypeName="QuanLyGiaoVienVaHocSinhModel.NguoiDung">
               <MappingFragment StoreEntitySet="NguoiDung">
                 <ScalarProperty Name="TenDN" ColumnName="TenDN" />
@@ -967,7 +967,7 @@ warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

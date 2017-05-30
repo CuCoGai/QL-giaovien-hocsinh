@@ -17,8 +17,8 @@ namespace QLgiaovienhocsinh.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ban()
         {
-            this.MonHoc = new HashSet<MonHoc>();
-            this.GiaoVien = new HashSet<GiaoVien>();
+            this.MonHocs = new HashSet<MonHoc>();
+            this.GiaoViens = new HashSet<GiaoVien>();
         }
     
         public string MaBan { get; set; }
@@ -26,8 +26,8 @@ namespace QLgiaovienhocsinh.Model
         public string NoiDung { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MonHoc> MonHoc { get; set; }
+        public virtual ICollection<MonHoc> MonHocs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GiaoVien> GiaoVien { get; set; }
+        public virtual ICollection<GiaoVien> GiaoViens { get; set; }
     }
 }
