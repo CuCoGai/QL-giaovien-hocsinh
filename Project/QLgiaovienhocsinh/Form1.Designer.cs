@@ -425,6 +425,8 @@
             this.textBoxTKGV.Name = "textBoxTKGV";
             this.textBoxTKGV.Size = new System.Drawing.Size(342, 20);
             this.textBoxTKGV.TabIndex = 20;
+            this.textBoxTKGV.Text = "Nhập mã hoặc tên giáo viên";
+            this.textBoxTKGV.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBoxTKGV_MouseClick_1);
             // 
             // btnTimKiemGV
             // 
@@ -434,6 +436,7 @@
             this.btnTimKiemGV.TabIndex = 19;
             this.btnTimKiemGV.Text = "Tìm kiếm";
             this.btnTimKiemGV.UseVisualStyleBackColor = true;
+            this.btnTimKiemGV.Click += new System.EventHandler(this.btnTimKiemGV_Click_1);
             // 
             // tabPage2
             // 
@@ -679,6 +682,8 @@
             this.tbxTKHS.Name = "tbxTKHS";
             this.tbxTKHS.Size = new System.Drawing.Size(326, 20);
             this.tbxTKHS.TabIndex = 22;
+            this.tbxTKHS.Text = "Nhập mã và tên học sinh";
+            this.tbxTKHS.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbxTKHS_MouseClick_1);
             // 
             // btnTKHS
             // 
@@ -688,6 +693,7 @@
             this.btnTKHS.TabIndex = 21;
             this.btnTKHS.Text = "Tìm kiếm";
             this.btnTKHS.UseVisualStyleBackColor = true;
+            this.btnTKHS.Click += new System.EventHandler(this.btnTKHS_Click_1);
             // 
             // tabPage4
             // 
@@ -795,7 +801,7 @@
             this.Controls.Add(this.splitter2);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
