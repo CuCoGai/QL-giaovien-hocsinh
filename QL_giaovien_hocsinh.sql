@@ -1,12 +1,12 @@
 USE [master]
 GO
 /****** Object:  Database [QuanLyGiaoVienVaHocSinh]    Script Date: 07/05/2017 3:33:57 CH ******/
-CREATE DATABASE [QuanLyGiaoVienVaHocSinh]
+CREATE DATABASE [QuanLyGiaoVienvaHocSinh]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'QuanLyGiaoVienVaHocSinh', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\QuanLyGiaoVienVaHocSinh.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+( NAME = N'QuanLyGiaoVienVaHocSinh', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\QuanLyGiaoVienVaHocSinh.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
-( NAME = N'QuanLyGiaoVienVaHocSinh_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\QuanLyGiaoVienVaHocSinh_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+( NAME = N'QuanLyGiaoVienVaHocSinh_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\QuanLyGiaoVienVaHocSinh_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 GO
 ALTER DATABASE [QuanLyGiaoVienVaHocSinh] SET COMPATIBILITY_LEVEL = 130
 GO
