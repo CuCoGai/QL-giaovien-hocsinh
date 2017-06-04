@@ -14,7 +14,7 @@ namespace QLgiaovienhocsinh
 {
     public partial class Form1 : Form
     {
-        QuanLyGiaoVienVaHocSinhEntities db = new QuanLyGiaoVienVaHocSinhEntities();
+       public QuanLyGiaoVienVaHocSinhEntities db = new QuanLyGiaoVienVaHocSinhEntities();
 
         public Form1()
         {
@@ -32,13 +32,29 @@ namespace QLgiaovienhocsinh
          void LoadDataGV()
         {
             this.dataGridViewGV.DataSource = db.GiaoViens.ToList();
-
+            dataGridViewGV.Columns[0].HeaderText = "Tên nhân viên";
+            dataGridViewGV.Columns[1].HeaderText = "Số CMT";
+            dataGridViewGV.Columns[2].HeaderText = "Ngày Sinh";
+            dataGridViewGV.Columns[3].HeaderText = "Giới Tính";
+            dataGridViewGV.Columns[4].HeaderText = "Số điện thoại";
+            dataGridViewGV.Columns[5].HeaderText = "Email";
+            dataGridViewGV.Columns[6].HeaderText = "Địa chỉ";
+            dataGridViewGV.Columns[7].HeaderText = "Quê quán";
+            dataGridViewGV.Columns[8].HeaderText = "Dân tộc";
+            dataGridViewGV.Columns[9].HeaderText = "Tôn giáo";
         }
 
         void LoadDataHS  ()
         {
-            this.dataGridViewGV.DataSource = db.GiaoViens.ToList();
-
+            this.dataGridViewHS.DataSource = db.HocSinhs.ToList();
+            dataGridViewHS.Columns[0].HeaderText = "Mã học sinh";
+            dataGridViewHS.Columns[1].HeaderText = "Tên học sinh";
+            dataGridViewHS.Columns[2].HeaderText = "Ngày Sinh";
+            dataGridViewHS.Columns[3].HeaderText = "Giới Tính";
+            dataGridViewGV.Columns[4].HeaderText = "Địa chỉ";
+            dataGridViewGV.Columns[5].HeaderText = "Quê quán";
+            dataGridViewGV.Columns[6].HeaderText = "Dân tộc";
+            dataGridViewGV.Columns[7].HeaderText = "Tôn giáo";
         }
 
          void clear( )
@@ -123,27 +139,12 @@ namespace QLgiaovienhocsinh
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            dataGridViewGV.DataSource = db.GiaoViens.Select(d => new
-            {
-                Tên = d.TenGV,
-                CMT = d.CMT,
-                Date = d.NgaySinh,
-                GioiTinh = d.GioiTinh == true ? "Nam" : "Nữ",
-                SDT = d.SDT,
-                Email = d.Email,
-                Diachi = d.DiaChi,
-                Quequan = d.QueQuan,
-                Dantoc = d.DanToc,
-                Tongiao = d.TonGiao
-            }).ToList();
-            dataGridViewGV.Columns[0].HeaderText = "Tên nhân viên";
-            dataGridViewGV.Columns[1].HeaderText = "Số CMT";
-            dataGridViewGV.Columns[2].HeaderText = "Ngày Sinh";
-            dataGridViewGV.Columns[3].HeaderText = "Giới Tính";
-            dataGridViewGV.Columns[4].HeaderText = "SDT";
-
+            LoadDataGV();
+            LoadDataHS();
 
         }
+
+        #region tìm kiếm
         private void textBoxTKGV_MouseClick_1(object sender, MouseEventArgs e)
         {
             textBoxTKGV.Text = null;
@@ -218,5 +219,7 @@ namespace QLgiaovienhocsinh
             dataGridViewGV.Columns[8].HeaderText = "Dân tộc";
             dataGridViewGV.Columns[9].HeaderText = "Tôn giáo";
         }
+
+        #endregion
     }
 }
