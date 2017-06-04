@@ -768,7 +768,7 @@ namespace QLgiaovienhocsinh.QuanLyGiaoVienVaHocSinhDataSetTableAdapters {
     }
     
     /// <summary>
-    ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+    ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enablehsierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]

@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuanLyGiaoVienVaHocSinhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityType Name="Ban">
+          <Key>
+            <PropertyRef Name="MaBan" />
+          </Key>
+          <Property Name="MaBan" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenBan" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoiDung" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.BanPhuTrachMonHoc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BanPhuTrachMonHoc">
+          <Key>
+            <PropertyRef Name="MaBan" />
+            <PropertyRef Name="MaMonHoc" />
+          </Key>
+          <Property Name="MaBan" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaMonHoc" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GiaoVien">
+          <Key>
+            <PropertyRef Name="CMT" />
+          </Key>
+          <Property Name="CMT" Type="int" Nullable="false" />
+          <Property Name="TenGV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="GioiTinh" Type="bit" />
+          <Property Name="SDT" Type="varchar" MaxLength="11" />
+          <Property Name="Email" Type="nchar" MaxLength="30" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="QueQuan" Type="nvarchar" MaxLength="100" />
+          <Property Name="DanToc" Type="nvarchar" MaxLength="20" />
+          <Property Name="TonGiao" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.GiaoVienDayLopMH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GiaoVienDayLopMH">
+          <Key>
+            <PropertyRef Name="MaGiaoVien" />
+            <PropertyRef Name="MaLopMH" />
+          </Key>
+          <Property Name="MaGiaoVien" Type="int" Nullable="false" />
+          <Property Name="MaLopMH" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.GiaoVienThuocBan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GiaoVienThuocBan">
+          <Key>
+            <PropertyRef Name="MaGiaoVien" />
+            <PropertyRef Name="MaBan" />
+          </Key>
+          <Property Name="MaGiaoVien" Type="int" Nullable="false" />
+          <Property Name="MaBan" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HocSinh">
+          <Key>
+            <PropertyRef Name="MaHS" />
+          </Key>
+          <Property Name="MaHS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenHS" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="GioiTinh" Type="bit" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="QueQuan" Type="nvarchar" MaxLength="100" />
+          <Property Name="DanToc" Type="nvarchar" MaxLength="20" />
+          <Property Name="TonGiao" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Khoi">
+          <Key>
+            <PropertyRef Name="MaKhoi" />
+          </Key>
+          <Property Name="MaKhoi" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenKhoi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Lop">
+          <Key>
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaLop" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenLop" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.LopHocLopMonHoc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LopHocLopMonHoc">
+          <Key>
+            <PropertyRef Name="MaLop" />
+            <PropertyRef Name="MaLopMH" />
+          </Key>
+          <Property Name="MaLop" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaLopMH" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LopMonHoc">
+          <Key>
+            <PropertyRef Name="MaLopMH" />
+          </Key>
+          <Property Name="MaLopMH" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenLopMH" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MonHoc">
+          <Key>
+            <PropertyRef Name="MaMonHoc" />
+          </Key>
+          <Property Name="MaMonHoc" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenMonHoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="NDMonHoc" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.NguoiDung' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NguoiDung">
+          <Key>
+            <PropertyRef Name="TenDN" />
+          </Key>
+          <Property Name="TenDN" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MatKhau" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PhanGiaoVienCN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MaGiaoVien" Type="int" Nullable="false" />
+          <Property Name="MaLop" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanKhoi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PhanKhoi">
+          <Key>
+            <PropertyRef Name="MaLop" />
+            <PropertyRef Name="MaKhoi" />
+          </Key>
+          <Property Name="MaLop" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaKhoi" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLMH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PhanLMH">
+          <Key>
+            <PropertyRef Name="MaMH" />
+            <PropertyRef Name="MaLopMH" />
+          </Key>
+          <Property Name="MaMH" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaLopMH" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QuanLyGiaoVienVaHocSinh.dbo.PhanLop' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PhanLop">
+          <Key>
+            <PropertyRef Name="MaHS" />
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaHS" Type="int" Nullable="false" />
+          <Property Name="MaLop" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BanPhuTrachMonHoc_Ban1">
+          <End Role="Ban" Type="Self.Ban" Multiplicity="1" />
+          <End Role="BanPhuTrachMonHoc" Type="Self.BanPhuTrachMonHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ban">
+              <PropertyRef Name="MaBan" />
+            </Principal>
+            <Dependent Role="BanPhuTrachMonHoc">
+              <PropertyRef Name="MaBan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BanPhuTrachMonHoc_MonHoc1">
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="1" />
+          <End Role="BanPhuTrachMonHoc" Type="Self.BanPhuTrachMonHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="BanPhuTrachMonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GiaoVienDayLopMH_GiaoVien1">
+          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="1" />
+          <End Role="GiaoVienDayLopMH" Type="Self.GiaoVienDayLopMH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GiaoVien">
+              <PropertyRef Name="CMT" />
+            </Principal>
+            <Dependent Role="GiaoVienDayLopMH">
+              <PropertyRef Name="MaGiaoVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GiaoVienDayLopMH_LopMonHoc">
+          <End Role="LopMonHoc" Type="Self.LopMonHoc" Multiplicity="1" />
+          <End Role="GiaoVienDayLopMH" Type="Self.GiaoVienDayLopMH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LopMonHoc">
+              <PropertyRef Name="MaLopMH" />
+            </Principal>
+            <Dependent Role="GiaoVienDayLopMH">
+              <PropertyRef Name="MaLopMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GiaoVienThuocBan_Ban1">
+          <End Role="Ban" Type="Self.Ban" Multiplicity="1" />
+          <End Role="GiaoVienThuocBan" Type="Self.GiaoVienThuocBan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ban">
+              <PropertyRef Name="MaBan" />
+            </Principal>
+            <Dependent Role="GiaoVienThuocBan">
+              <PropertyRef Name="MaBan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GiaoVienThuocBan_GiaoVien1">
+          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="1" />
+          <End Role="GiaoVienThuocBan" Type="Self.GiaoVienThuocBan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GiaoVien">
+              <PropertyRef Name="CMT" />
+            </Principal>
+            <Dependent Role="GiaoVienThuocBan">
+              <PropertyRef Name="MaGiaoVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LopHocLopMonHoc_Lop1">
+          <End Role="Lop" Type="Self.Lop" Multiplicity="1" />
+          <End Role="LopHocLopMonHoc" Type="Self.LopHocLopMonHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="LopHocLopMonHoc">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LopHocLopMonHoc_LopMonHoc1">
+          <End Role="LopMonHoc" Type="Self.LopMonHoc" Multiplicity="1" />
+          <End Role="LopHocLopMonHoc" Type="Self.LopHocLopMonHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LopMonHoc">
+              <PropertyRef Name="MaLopMH" />
+            </Principal>
+            <Dependent Role="LopHocLopMonHoc">
+              <PropertyRef Name="MaLopMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhanGiaoVienCN_GiaoVien">
+          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="1" />
+          <End Role="PhanGiaoVienCN" Type="Self.PhanGiaoVienCN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GiaoVien">
+              <PropertyRef Name="CMT" />
+            </Principal>
+            <Dependent Role="PhanGiaoVienCN">
+              <PropertyRef Name="MaGiaoVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhanGiaoVienCN_Lop">
+          <End Role="Lop" Type="Self.Lop" Multiplicity="1" />
+          <End Role="PhanGiaoVienCN" Type="Self.PhanGiaoVienCN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="PhanGiaoVienCN">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhanKhoi_Khoi">
+          <End Role="Khoi" Type="Self.Khoi" Multiplicity="1" />
+          <End Role="PhanKhoi" Type="Self.PhanKhoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoi">
+              <PropertyRef Name="MaKhoi" />
+            </Principal>
+            <Dependent Role="PhanKhoi">
+              <PropertyRef Name="MaKhoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhanKhoi_Lop">
+          <End Role="Lop" Type="Self.Lop" Multiplicity="1" />
+          <End Role="PhanKhoi" Type="Self.PhanKhoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="PhanKhoi">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhanLMH_LopMonHoc">
+          <End Role="LopMonHoc" Type="Self.LopMonHoc" Multiplicity="1" />
+          <End Role="PhanLMH" Type="Self.PhanLMH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LopMonHoc">
+              <PropertyRef Name="MaLopMH" />
+            </Principal>
+            <Dependent Role="PhanLMH">
+              <PropertyRef Name="MaLopMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhanLMH_MonHoc">
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="1" />
+          <End Role="PhanLMH" Type="Self.PhanLMH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="PhanLMH">
+              <PropertyRef Name="MaMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhanLop_HocSinh">
+          <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="1" />
+          <End Role="PhanLop" Type="Self.PhanLop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocSinh">
+              <PropertyRef Name="MaHS" />
+            </Principal>
+            <Dependent Role="PhanLop">
+              <PropertyRef Name="MaHS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhanLop_Lop">
+          <End Role="Lop" Type="Self.Lop" Multiplicity="1" />
+          <End Role="PhanLop" Type="Self.PhanLop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="PhanLop">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyGiaoVienVaHocSinhModelStoreContainer">
+          <EntitySet Name="Ban" EntityType="Self.Ban" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GiaoVien" EntityType="Self.GiaoVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HocSinh" EntityType="Self.HocSinh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Khoi" EntityType="Self.Khoi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lop" EntityType="Self.Lop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LopMonHoc" EntityType="Self.LopMonHoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonHoc" EntityType="Self.MonHoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhanGiaoVienCN" EntityType="Self.PhanGiaoVienCN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BanPhuTrachMonHoc" EntityType="Self.BanPhuTrachMonHoc" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[BanPhuTrachMonHoc].[MaBan] AS [MaBan], 
+[BanPhuTrachMonHoc].[MaMonHoc] AS [MaMonHoc]
+FROM [dbo].[BanPhuTrachMonHoc] AS [BanPhuTrachMonHoc]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GiaoVienDayLopMH" EntityType="Self.GiaoVienDayLopMH" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[GiaoVienDayLopMH].[MaGiaoVien] AS [MaGiaoVien], 
+[GiaoVienDayLopMH].[MaLopMH] AS [MaLopMH]
+FROM [dbo].[GiaoVienDayLopMH] AS [GiaoVienDayLopMH]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GiaoVienThuocBan" EntityType="Self.GiaoVienThuocBan" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[GiaoVienThuocBan].[MaGiaoVien] AS [MaGiaoVien], 
+[GiaoVienThuocBan].[MaBan] AS [MaBan]
+FROM [dbo].[GiaoVienThuocBan] AS [GiaoVienThuocBan]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LopHocLopMonHoc" EntityType="Self.LopHocLopMonHoc" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[LopHocLopMonHoc].[MaLop] AS [MaLop], 
+[LopHocLopMonHoc].[MaLopMH] AS [MaLopMH]
+FROM [dbo].[LopHocLopMonHoc] AS [LopHocLopMonHoc]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[NguoiDung].[TenDN] AS [TenDN], 
+[NguoiDung].[MatKhau] AS [MatKhau]
+FROM [dbo].[NguoiDung] AS [NguoiDung]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PhanKhoi" EntityType="Self.PhanKhoi" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[PhanKhoi].[MaLop] AS [MaLop], 
+[PhanKhoi].[MaKhoi] AS [MaKhoi]
+FROM [dbo].[PhanKhoi] AS [PhanKhoi]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PhanLMH" EntityType="Self.PhanLMH" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[PhanLMH].[MaMH] AS [MaMH], 
+[PhanLMH].[MaLopMH] AS [MaLopMH]
+FROM [dbo].[PhanLMH] AS [PhanLMH]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PhanLop" EntityType="Self.PhanLop" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[PhanLop].[MaHS] AS [MaHS], 
+[PhanLop].[MaLop] AS [MaLop]
+FROM [dbo].[PhanLop] AS [PhanLop]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BanPhuTrachMonHoc_Ban1" Association="Self.FK_BanPhuTrachMonHoc_Ban1">
+            <End Role="Ban" EntitySet="Ban" />
+            <End Role="BanPhuTrachMonHoc" EntitySet="BanPhuTrachMonHoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BanPhuTrachMonHoc_MonHoc1" Association="Self.FK_BanPhuTrachMonHoc_MonHoc1">
+            <End Role="MonHoc" EntitySet="MonHoc" />
+            <End Role="BanPhuTrachMonHoc" EntitySet="BanPhuTrachMonHoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GiaoVienDayLopMH_GiaoVien1" Association="Self.FK_GiaoVienDayLopMH_GiaoVien1">
+            <End Role="GiaoVien" EntitySet="GiaoVien" />
+            <End Role="GiaoVienDayLopMH" EntitySet="GiaoVienDayLopMH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GiaoVienDayLopMH_LopMonHoc" Association="Self.FK_GiaoVienDayLopMH_LopMonHoc">
+            <End Role="LopMonHoc" EntitySet="LopMonHoc" />
+            <End Role="GiaoVienDayLopMH" EntitySet="GiaoVienDayLopMH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GiaoVienThuocBan_Ban1" Association="Self.FK_GiaoVienThuocBan_Ban1">
+            <End Role="Ban" EntitySet="Ban" />
+            <End Role="GiaoVienThuocBan" EntitySet="GiaoVienThuocBan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GiaoVienThuocBan_GiaoVien1" Association="Self.FK_GiaoVienThuocBan_GiaoVien1">
+            <End Role="GiaoVien" EntitySet="GiaoVien" />
+            <End Role="GiaoVienThuocBan" EntitySet="GiaoVienThuocBan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LopHocLopMonHoc_Lop1" Association="Self.FK_LopHocLopMonHoc_Lop1">
+            <End Role="Lop" EntitySet="Lop" />
+            <End Role="LopHocLopMonHoc" EntitySet="LopHocLopMonHoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LopHocLopMonHoc_LopMonHoc1" Association="Self.FK_LopHocLopMonHoc_LopMonHoc1">
+            <End Role="LopMonHoc" EntitySet="LopMonHoc" />
+            <End Role="LopHocLopMonHoc" EntitySet="LopHocLopMonHoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhanGiaoVienCN_GiaoVien" Association="Self.FK_PhanGiaoVienCN_GiaoVien">
+            <End Role="GiaoVien" EntitySet="GiaoVien" />
+            <End Role="PhanGiaoVienCN" EntitySet="PhanGiaoVienCN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhanGiaoVienCN_Lop" Association="Self.FK_PhanGiaoVienCN_Lop">
+            <End Role="Lop" EntitySet="Lop" />
+            <End Role="PhanGiaoVienCN" EntitySet="PhanGiaoVienCN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhanKhoi_Khoi" Association="Self.FK_PhanKhoi_Khoi">
+            <End Role="Khoi" EntitySet="Khoi" />
+            <End Role="PhanKhoi" EntitySet="PhanKhoi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhanKhoi_Lop" Association="Self.FK_PhanKhoi_Lop">
+            <End Role="Lop" EntitySet="Lop" />
+            <End Role="PhanKhoi" EntitySet="PhanKhoi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhanLMH_LopMonHoc" Association="Self.FK_PhanLMH_LopMonHoc">
+            <End Role="LopMonHoc" EntitySet="LopMonHoc" />
+            <End Role="PhanLMH" EntitySet="PhanLMH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhanLMH_MonHoc" Association="Self.FK_PhanLMH_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHoc" />
+            <End Role="PhanLMH" EntitySet="PhanLMH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhanLop_HocSinh" Association="Self.FK_PhanLop_HocSinh">
+            <End Role="HocSinh" EntitySet="HocSinh" />
+            <End Role="PhanLop" EntitySet="PhanLop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhanLop_Lop" Association="Self.FK_PhanLop_Lop">
+            <End Role="Lop" EntitySet="Lop" />
+            <End Role="PhanLop" EntitySet="PhanLop" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2006/04/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="QLSVEntities" Alias="Self">
+        <EntityContainer Name="QLSVEntitiesContainer"></EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS" Space="C-S">
+        <Alias Key="Model" Value="QLSVEntities" />
+        <Alias Key="Target" Value="QLSVEntities.Store" />
+        <EntityContainerMapping CdmEntityContainer="QLSVEntitiesContainer" StorageEntityContainer="QLSVEntitiesTargetContainer"></EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

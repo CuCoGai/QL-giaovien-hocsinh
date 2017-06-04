@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="487bf1c30b9545ff9f90fbbe9c09bc60" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyGiaoVienVaHocSinhModel.Ban" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyGiaoVienVaHocSinhModel.GiaoVien" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyGiaoVienVaHocSinhModel.HocSinh" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyGiaoVienVaHocSinhModel.Khoi" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyGiaoVienVaHocSinhModel.Lop" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyGiaoVienVaHocSinhModel.LopMonHoc" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyGiaoVienVaHocSinhModel.MonHoc" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyGiaoVienVaHocSinhModel.PhanGiaoVienCN" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyGiaoVienVaHocSinhModel.NguoiDung" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyGiaoVienVaHocSinhModel.FK_PhanGiaoVienCN_GiaoVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyGiaoVienVaHocSinhModel.FK_PhanGiaoVienCN_Lop" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyGiaoVienVaHocSinhModel.BanPhuTrachMonHoc" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyGiaoVienVaHocSinhModel.GiaoVienDayLopMH" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyGiaoVienVaHocSinhModel.GiaoVienThuocBan" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyGiaoVienVaHocSinhModel.LopHocLopMonHoc" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyGiaoVienVaHocSinhModel.PhanKhoi" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyGiaoVienVaHocSinhModel.PhanLMH" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyGiaoVienVaHocSinhModel.PhanLop" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
