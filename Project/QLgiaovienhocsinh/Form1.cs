@@ -130,8 +130,9 @@ namespace QLgiaovienhocsinh
 
         #endregion
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load_1(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             FillDataSV();
         }
         // Học Sinh
@@ -155,6 +156,102 @@ namespace QLgiaovienhocsinh
         private void tabPage2_Click(object sender, EventArgs e)
         {
             
+=======
+            dataGridViewGV.DataSource = db.GiaoViens.Select(d => new
+            {
+                Tên = d.TenGV,
+                CMT = d.CMT,
+                Date = d.NgaySinh,
+                GioiTinh = d.GioiTinh == true ? "Nam" : "Nữ",
+                SDT = d.SDT,
+                Email = d.Email,
+                Diachi = d.DiaChi,
+                Quequan = d.QueQuan,
+                Dantoc = d.DanToc,
+                Tongiao = d.TonGiao
+            }).ToList();
+            dataGridViewGV.Columns[0].HeaderText = "Tên nhân viên";
+            dataGridViewGV.Columns[1].HeaderText = "Số CMT";
+            dataGridViewGV.Columns[2].HeaderText = "Ngày Sinh";
+            dataGridViewGV.Columns[3].HeaderText = "Giới Tính";
+            dataGridViewGV.Columns[4].HeaderText = "SDT";
+
+
+        }
+        private void textBoxTKGV_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            textBoxTKGV.Text = null;
+        }
+
+        private void tbxTKHS_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            tbxTKHS.Text = null;
+        }
+
+        private void btnTKHS_Click_1(object sender, EventArgs e)
+        {
+            var query = from s in db.HocSinhs
+                        where s.TenHS.Contains(tbxTKHS.Text) || s.MaHS.ToString().Contains(tbxTKHS.Text)
+                        select new
+                        {
+                            Ma = s.MaHS,
+                            Tên = s.TenHS,
+                            Date = s.NgaySinh,
+                            GioiTinh = s.GioiTinh == true ? "Nam" : "Nữ",
+                            Diachi = s.DiaChi,
+                            Quequan = s.QueQuan,
+                            Dantoc = s.DanToc,
+                            Tongiao = s.TonGiao
+                        };
+
+            dataGridViewHS.DataSource = query.ToList();
+            for (int i = 0; i < dataGridViewHS.RowCount; i++)
+            {
+                dataGridViewHS.Rows[i].HeaderCell.Value = (i + 1).ToString();
+            }
+            dataGridViewHS.Columns[0].HeaderText = "Mã học sinh";
+            dataGridViewHS.Columns[1].HeaderText = "Tên học sinh";
+            dataGridViewHS.Columns[2].HeaderText = "Ngày Sinh";
+            dataGridViewHS.Columns[3].HeaderText = "Giới Tính";
+            dataGridViewGV.Columns[4].HeaderText = "Địa chỉ";
+            dataGridViewGV.Columns[5].HeaderText = "Quê quán";
+            dataGridViewGV.Columns[6].HeaderText = "Dân tộc";
+            dataGridViewGV.Columns[7].HeaderText = "Tôn giáo";
+        }
+
+        private void btnTimKiemGV_Click_1(object sender, EventArgs e)
+        {
+            var query = from s in db.GiaoViens
+                        where s.TenGV.Contains(textBoxTKGV.Text) || s.CMT.ToString().Contains(textBoxTKGV.Text)
+                        select new
+                        {
+                            Tên = s.TenGV,
+                            CMT = s.CMT,
+                            Date = s.NgaySinh,
+                            GioiTinh = s.GioiTinh == true ? "Nam" : "Nữ",
+                            SDT = s.SDT,
+                            Email = s.Email,
+                            Diachi = s.DiaChi,
+                            Quequan = s.QueQuan,
+                            Dantoc = s.DanToc,
+                            Tongiao = s.TonGiao
+                        };
+            dataGridViewGV.DataSource = query.ToList();
+            for (int i = 0; i < dataGridViewGV.RowCount; i++)
+            {
+                dataGridViewGV.Rows[i].HeaderCell.Value = (i + 1).ToString();
+            }
+            dataGridViewGV.Columns[0].HeaderText = "Tên nhân viên";
+            dataGridViewGV.Columns[1].HeaderText = "Số CMT";
+            dataGridViewGV.Columns[2].HeaderText = "Ngày Sinh";
+            dataGridViewGV.Columns[3].HeaderText = "Giới Tính";
+            dataGridViewGV.Columns[4].HeaderText = "Số điện thoại";
+            dataGridViewGV.Columns[5].HeaderText = "Email";
+            dataGridViewGV.Columns[6].HeaderText = "Địa chỉ";
+            dataGridViewGV.Columns[7].HeaderText = "Quê quán";
+            dataGridViewGV.Columns[8].HeaderText = "Dân tộc";
+            dataGridViewGV.Columns[9].HeaderText = "Tôn giáo";
+>>>>>>> 593a13a9956359df1c46060ba91a4737fb37d924
         }
 
         private void btn_AddHS_Click(object sender, EventArgs e)
