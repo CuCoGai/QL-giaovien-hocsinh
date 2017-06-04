@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿// T4 code generation is enabled for model 'C:\Users\Administrator\Documents\GitHub\QL-giaovien-hocsinh\Project\QLgiaovienhocsinh\Model\Model1.edmx'. 
-=======
-﻿// T4 code generation is enabled for model 'D:\hoctap\Git Hub\QL-giaovien-hocsinh\Project\QLgiaovienhocsinh\Model\Model1.edmx'. 
->>>>>>> 593a13a9956359df1c46060ba91a4737fb37d924
+﻿﻿// T4 code generation is enabled for model 'C:\Users\Administrator\Documents\GitHub\QL-giaovien-hocsinh\Project\QLgiaovienhocsinh\Model\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
